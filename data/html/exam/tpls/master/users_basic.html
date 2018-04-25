@@ -1,0 +1,114 @@
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?exam-master">考试模块</a></li>
+							<li><a href="index.php?exam-master-users">开通课程</a></li>
+							<li class="active">课程选择</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						课程选择
+						<a class="btn btn-primary pull-right" href="index.php?exam-master-users">开通课程</a>
+					</h4>
+			        <form action="index.php?exam-master-users-basics&userid=1" method="post" class="form-inline">
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="6">搜索</th>
+								</tr>
+							</thead>
+							<tr>
+								<td>
+									考场ID：
+								</td>
+								<td>
+									<input class="form-control" name="search[basicid]" class="inline" type="text" class="number" value=""/>
+								</td>
+								<td>
+									关键字：
+								</td>
+								<td>
+									<input class="form-control" name="search[keyword]" type="text" value=""/>
+								</td>
+								<td>
+									地区：
+								</td>
+					        	<td>
+					        		<select class="form-control" name="search[basicareaid]">
+					        		<option value="0">选择地区</option>
+							  									  		<option value="1">全国</option>
+							  									  		<option value="3">河南</option>
+							  									  		<option value="4">北京</option>
+							  									  		<option value="5">陕西</option>
+							  									  		<option value="6">河北</option>
+							  									  		<option value="7">天津</option>
+							  									  		<option value="8">山东</option>
+							  									  		<option value="9">江苏</option>
+							  									  		<option value="10">湖北</option>
+							  									  		<option value="11">辽宁</option>
+							  									  		<option value="12">贵州</option>
+							  									  		<option value="13">北京春雪</option>
+							  									  		<option value="14">云南</option>
+							  									  		<option value="15">四川</option>
+							  									  		<option value="16">安徽</option>
+							  									  		<option value="17">深圳</option>
+							  									  		<option value="18">吉林</option>
+							  									  		<option value="19">广东</option>
+							  									  		<option value="20">新疆</option>
+							  									  		<option value="21">广西</option>
+							  									  		<option value="22">福建</option>
+							  									  		<option value="23">湖南</option>
+							  									  		<option value="24">上海</option>
+							  									  		<option value="25">重庆</option>
+							  									  		<option value="26">江西</option>
+							  									  		<option value="27">浙江</option>
+							  									  		<option value="28">山西</option>
+							  									  		</select>
+					        	</td>
+					        </tr>
+					        <tr>
+					        	<td>
+									API标识：
+								</td>
+								<td>
+									<input class="form-control" name="search[basicapi]" type="text" value=""/>
+								</td>
+								<td>
+									科目：
+								</td>
+								<td>
+					        		<select class="form-control" name="search[basicsubjectid]">
+					        		<option value="0">选择科目</option>
+							  									  		<option value="1">演示课程</option>
+							  									  		<option value="2">测试科目二</option>
+							  									  		<option value="3" selected>计算机科学与技术</option>
+							  									  		</select>
+					        	</td>
+								<td>
+									<button class="btn btn-primary" type="submit">搜索</button>
+									<input type="hidden" value="1" name="search[argsmodel]" />
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</form>
+			        <table class="table table-hover table-bordered">
+						<thead>
+							<tr class="info">
+			                    <th>考场ID</th>
+						        <th>考场名称</th>
+						        <th>考场地区</th>
+						        <th>考试科目</th>
+						        <th>到期时间</th>
+						        <th>操作</th>
+			                </tr>
+			            </thead>
+			            <tbody>
+		                    			        	</tbody>
+			        </table>
+			        <ul class="pagination pull-right">
+			            			        </ul>
+				</div>
+			</div>

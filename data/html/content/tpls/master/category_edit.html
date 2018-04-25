@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-10">
+				<h2 style="color:#2DAB49;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS后台管理</a></h2>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> peadmin</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																<li><a href="index.php?core-master"><em class="glyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#2DAB49;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1">
+						<a href="index.php?core-master">全局</a>
+					</li>
+															<li class="menu col-xs-1">
+						<a href="index.php?user-master">用户模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?exam-master">考试模块</a>
+					</li>
+																														<li class="menu col-xs-1">
+						<a href="index.php?document-master">文件模块</a>
+					</li>
+																				<li class="menu col-xs-1 active">
+						<a href="index.php?content-master">内容模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?bank-master">财务模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?course-master">课程模块</a>
+					</li>
+														</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<ul class="list-group">
+	<li class="list-group-item ">
+				<a href="index.php?content-master">首页</a>
+			</li>
+	<li class="list-group-item active">
+		分类管理
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-contents">内容管理</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-module">模型管理</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-blocks">标签管理</a>
+			</li>
+</ul>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?content-master">内容模块</a></li>
+							<li><a href="index.php?content-master-category">分类管理</a></li>
+							<li class="active">修改分类</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						修改分类
+						<a class="btn btn-primary pull-right" href="index.php?content-master-category&parent=">分类列表</a>
+					</h4>
+					<form action="index.php?content-master-category-edit" method="post" class="form-horizontal">
+						<fieldset>
+							<div class="form-group">
+							</div>
+							<div class="form-group">
+								<label for="modulename" class="control-label col-sm-2">分类名称</label>
+								<div class="col-sm-4">
+									<input class="form-control" type="text" id="input1" name="args[catname]" value="考试资料" datatype="userName" needle="needle" msg="您必须输入中英文字符的分类名称">
+									<span class="help-block">请输入分类名称</span>
+								</div>
+							</div>
+														<div class="form-group">
+								<label for="modulename" class="control-label col-sm-2">前台显示</label>
+								<div class="col-sm-9">
+									<label class="radio-inline">
+						          		<input type="radio" class="input-text" name="args[catinmenu]" value="1" checked/> 不显示
+						          	</label>
+						          	<label class="radio-inline">
+						          		<input type="radio" class="input-text" name="args[catinmenu]" value="0"/> 显示
+						          	</label>
+						          	<span class="help-block">勾选此项后，分类将显示在内容模块前台的分类列表区域。</span>
+								</div>
+							</div>
+														<div class="form-group">
+								<label for="modulename" class="control-label col-sm-2">在首页展示内容</label>
+								<div class="col-sm-10 form-inline">
+									<input size="6" class="form-control" type="text" name="args[catindex]" value="5" datatype="number" needle="needle" msg="您必须填写展示内容条数"> 条
+									<span class="help-block">填写展示内容条数，如果不需要在首页展示，请填写0。</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="modulecode" class="control-label col-sm-2">分类排序</label>
+								<div class="col-sm-4">
+									<input class="form-control" type="text" id="input2" name="args[catlite]" value="0" datatype="number" msg="排序为整数">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="moduledescribe" class="control-label col-sm-2">外链地址</label>
+								<div class="col-sm-4">
+									<input class="form-control" type="text" name="args[caturl]" value="">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="moduledescribe" class="control-label col-sm-2">使用外链地址</label>
+								<div class="col-sm-9">
+									<label class="radio-inline">
+										<input type="radio"  name="args[catuseurl]" value="1">使用
+									</label>
+					            	<label class="radio-inline">
+					            		<input type="radio"  name="args[catuseurl]" value="0" checked>不使用
+					            	</label>
+									<span class="help-block">填写外链地址后，该分类会直接转到外链地址</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="moduledescribe" class="control-label col-sm-2">发布用户</label>
+								<div class="col-sm-6">
+									<input class="form-control" type="text" name="args[catmanager][pubusers]" value="">
+									<span class="help-block">填写用户ID，用英文逗号隔开</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="moduledescribe" class="control-label col-sm-2">发布角色</label>
+								<div class="col-sm-6">
+									<input class="form-control" type="text" name="args[catmanager][pubgroups]" value="">
+									<span class="help-block">填写角色ID，用英文逗号隔开</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="modulecode" class="control-label col-sm-2">分类模板</label>
+								<div class="col-sm-4">
+									<select class="form-control" name="args[cattpl]">
+						            							            	<option value="category_default" selected>category_default</option>
+						            							            </select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="moduledescribe" class="control-label col-sm-2">分类图片</label>
+								<div class="col-sm-9">
+									<script type="text/template" id="pe-template-photo">
+							    		<div class="qq-uploader-selector" style="width:30%" qq-drop-area-text="可将图片拖拽至此处上传" style="clear:both;">
+							            	<div class="qq-upload-button-selector" style="clear:both;">
+							                	<ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+									                <li class="text-center">
+									                    <div class="thumbnail">
+															<img class="qq-thumbnail-selector" alt="点击上传新图片">
+															<input type="hidden" class="qq-edit-filename-selector" name="args[catimg]" tabindex="0">
+														</div>
+									                </li>
+									            </ul>
+									            <ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+										            <li class="text-center">
+										                <div class="thumbnail">
+															<img class="qq-thumbnail-selector" src="files/attach/images/content/20160630/14672817048286.jpg" alt="点击上传新图片">
+															<input type="hidden" class="qq-edit-filename-selector" name="args[catimg]" tabindex="0" value="files/attach/images/content/20160630/14672817048286.jpg">
+							                			</div>
+										            </li>
+										        </ul>
+							                </div>
+							            </div>
+							        </script>
+							        <div class="fineuploader" attr-type="thumb" attr-template="pe-template-photo"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="catdes" class="control-label col-sm-2">分类简介</label>
+								<div class="col-sm-10">
+									<textarea class="ckeditor" rows="7" id="catdes" name="args[catdes]"></textarea>
+									<span class="help-block">对这个模型进行描述</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="catdes" class="control-label col-sm-2"></label>
+								<div class="col-sm-9">
+									<button class="btn btn-primary" type="submit">提交</button>
+									<input type="hidden" name="submit" value="1">
+						            <input type="hidden" name="page" value="1">
+						            <input type="hidden" name="catid" value="3">
+						            <input type="hidden" name="parent" value="">
+																	</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#2DAB49;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">在线学习及自动化考试系统（Online learning and automated examination system）</a></li>
+					<li class="text-center"><a href="">Copyright © 2016-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

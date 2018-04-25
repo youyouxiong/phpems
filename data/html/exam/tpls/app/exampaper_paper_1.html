@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head><body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid" id="questioncontent">
+	<div class="row-fluid">
+		<div class="main box">
+			<div class="col-xs-3" id="questionbar">
+				<dl class="clear" style="width:270px;" data-spy="affix" data-offset-top="235" id="questionindex">
+					<dd>
+						<h2><a class="btn btn-danger col-xs-12" style="font-size:1.2em;"><span id="timer_h">00</span>：<span id="timer_m">00</span>：<span id="timer_s">00</span></a></h2>
+					</dd>
+					<dt class="float_l"><h4>&nbsp;</h4></dt>
+																																								<dt class="float_l"><h4 class="title">一、单选题</h4></dt>
+					<dd class="tableindex">
+								                		                						<a id="sign_24" href="#question_24" class="btn btn-default">1</a>
+								                						<a id="sign_41" href="#question_41" class="btn btn-default">2</a>
+								                						<a id="sign_117" href="#question_117" class="btn btn-default">3</a>
+								                						<a id="sign_160" href="#question_160" class="btn btn-default">4</a>
+								                						<a id="sign_167" href="#question_167" class="btn btn-default">5</a>
+								                						<a id="sign_172" href="#question_172" class="btn btn-default">6</a>
+								                						<a id="sign_192" href="#question_192" class="btn btn-default">7</a>
+								                						<a id="sign_217" href="#question_217" class="btn btn-default">8</a>
+								                						<a id="sign_258" href="#question_258" class="btn btn-default">9</a>
+								                						<a id="sign_266" href="#question_266" class="btn btn-default">10</a>
+								                						<a id="sign_355" href="#question_355" class="btn btn-default">11</a>
+								                						<a id="sign_382" href="#question_382" class="btn btn-default">12</a>
+								                						<a id="sign_436" href="#question_436" class="btn btn-default">13</a>
+								                						<a id="sign_493" href="#question_493" class="btn btn-default">14</a>
+								                						<a id="sign_534" href="#question_534" class="btn btn-default">15</a>
+								                						<a id="sign_537" href="#question_537" class="btn btn-default">16</a>
+								                						<a id="sign_574" href="#question_574" class="btn btn-default">17</a>
+								                						<a id="sign_656" href="#question_656" class="btn btn-default">18</a>
+								                						<a id="sign_756" href="#question_756" class="btn btn-default">19</a>
+								                						<a id="sign_778" href="#question_778" class="btn btn-default">20</a>
+																	</dd>
+																																													<dt class="float_l"><h4 class="title">二、多选题</h4></dt>
+					<dd class="tableindex">
+								                		                						<a id="sign_53" href="#question_53" class="btn btn-default">1</a>
+								                						<a id="sign_88" href="#question_88" class="btn btn-default">2</a>
+								                						<a id="sign_168" href="#question_168" class="btn btn-default">3</a>
+								                						<a id="sign_275" href="#question_275" class="btn btn-default">4</a>
+								                						<a id="sign_281" href="#question_281" class="btn btn-default">5</a>
+								                						<a id="sign_291" href="#question_291" class="btn btn-default">6</a>
+								                						<a id="sign_363" href="#question_363" class="btn btn-default">7</a>
+								                						<a id="sign_365" href="#question_365" class="btn btn-default">8</a>
+								                						<a id="sign_366" href="#question_366" class="btn btn-default">9</a>
+								                						<a id="sign_424" href="#question_424" class="btn btn-default">10</a>
+								                						<a id="sign_538" href="#question_538" class="btn btn-default">11</a>
+								                						<a id="sign_638" href="#question_638" class="btn btn-default">12</a>
+								                						<a id="sign_642" href="#question_642" class="btn btn-default">13</a>
+								                						<a id="sign_677" href="#question_677" class="btn btn-default">14</a>
+								                						<a id="sign_815" href="#question_815" class="btn btn-default">15</a>
+																	</dd>
+																																													<dt class="float_l"><h4 class="title">三、判断题</h4></dt>
+					<dd class="tableindex">
+								                		                						<a id="sign_120" href="#question_120" class="btn btn-default">1</a>
+								                						<a id="sign_181" href="#question_181" class="btn btn-default">2</a>
+								                						<a id="sign_197" href="#question_197" class="btn btn-default">3</a>
+								                						<a id="sign_249" href="#question_249" class="btn btn-default">4</a>
+								                						<a id="sign_259" href="#question_259" class="btn btn-default">5</a>
+								                						<a id="sign_268" href="#question_268" class="btn btn-default">6</a>
+								                						<a id="sign_279" href="#question_279" class="btn btn-default">7</a>
+								                						<a id="sign_344" href="#question_344" class="btn btn-default">8</a>
+								                						<a id="sign_384" href="#question_384" class="btn btn-default">9</a>
+								                						<a id="sign_427" href="#question_427" class="btn btn-default">10</a>
+								                						<a id="sign_428" href="#question_428" class="btn btn-default">11</a>
+								                						<a id="sign_429" href="#question_429" class="btn btn-default">12</a>
+								                						<a id="sign_430" href="#question_430" class="btn btn-default">13</a>
+								                						<a id="sign_631" href="#question_631" class="btn btn-default">14</a>
+								                						<a id="sign_745" href="#question_745" class="btn btn-default">15</a>
+																	</dd>
+																																																																</dl>
+			</div>
+			<form id="form1" name="form1" method="post" action="index.php?exam-app-exampaper-score" class="col-xs-9 split pull-right" style="padding:0px;">
+				<div class="box itembox">
+					<h2 class="text-center tt">演示试卷一</h2>
+				</div>
+																												<hr />
+				<div class="box itembox">
+					<blockquote class="questype">一、单选题</blockquote>
+				</div>
+				                                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('24');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('24',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_24">
+							<input id="time_24" type="hidden" name="time[24]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>我国第一所民办高等教育机构哪年建立？					</div>
+															<div class="choice">
+                    	<p>A:1982</p><p>B:1985</p><p>C:1988</p><p>D:1992</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[24]" rel="24" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[24]" rel="24" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[24]" rel="24" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[24]" rel="24" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('41');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('41',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_41">
+							<input id="time_41" type="hidden" name="time[41]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>涮羊肉起源于					</div>
+															<div class="choice">
+                    	<p>A:清朝</p><p>B:元朝</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[41]" rel="41" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[41]" rel="41" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('117');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('117',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_117">
+							<input id="time_117" type="hidden" name="time[117]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>人类最早使用的工具，是什么材料的？					</div>
+															<div class="choice">
+                    	<p>A:木</p><p>B:石</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[117]" rel="117" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[117]" rel="117" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('160');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('160',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_160">
+							<input id="time_160" type="hidden" name="time[160]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>1999年12月15日，美国正式把巴拿马运河归还给巴拿马政府。此前，美国还在该地设立了一个个什么基地？					</div>
+															<div class="choice">
+                    	<p>A:商品基地</p><p>B:军事基地</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[160]" rel="160" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[160]" rel="160" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('167');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('167',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_167">
+							<input id="time_167" type="hidden" name="time[167]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>80年发行的人民币二角背面的图案是：					</div>
+															<div class="choice">
+                    	<p>A:国旗</p><p>B:国徽</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[167]" rel="167" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[167]" rel="167" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第6题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('172');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('172',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_172">
+							<input id="time_172" type="hidden" name="time[172]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>中国警察最新的警服是从何时开始更换的？					</div>
+															<div class="choice">
+                    	<p>A:2000年7月1日</p><p>B:2000年10月1日</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[172]" rel="172" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[172]" rel="172" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第7题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('192');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('192',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_192">
+							<input id="time_192" type="hidden" name="time[192]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>明代以后廷试的前三名依次是：					</div>
+															<div class="choice">
+                    	<p>A:榜眼 状元 探花</p><p>B:状元 探花 榜眼</p><p>C:状元 榜眼 探花</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[192]" rel="192" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[192]" rel="192" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[192]" rel="192" value="C" />C </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第8题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('217');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('217',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_217">
+							<input id="time_217" type="hidden" name="time[217]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>帮助商鞅在秦国人民中树立威信的是：					</div>
+															<div class="choice">
+                    	<p>A:一根木杆</p><p>B:一柄宝剑</p><p>C:一幅画</p><p>D:一个马头</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[217]" rel="217" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[217]" rel="217" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[217]" rel="217" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[217]" rel="217" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第9题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('258');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('258',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_258">
+							<input id="time_258" type="hidden" name="time[258]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>古代游牧民族生活存在太阳崇拜吗？					</div>
+															<div class="choice">
+                    	<p>A:存在</p><p>B:不存在</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[258]" rel="258" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[258]" rel="258" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第10题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('266');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('266',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_266">
+							<input id="time_266" type="hidden" name="time[266]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>被称为“世界第八奇观”的是：					</div>
+															<div class="choice">
+                    	<p>A:长城</p><p>B:圆明园</p><p>C:秦始皇兵马俑坑</p><p>D:泰山日出</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[266]" rel="266" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[266]" rel="266" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[266]" rel="266" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[266]" rel="266" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第11题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('355');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('355',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_355">
+							<input id="time_355" type="hidden" name="time[355]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>第一颗人造卫星发射成功是什么时候？					</div>
+															<div class="choice">
+                    	<p>A:1937年</p><p>B:1947年</p><p>C:1957年</p><p>D:1967年</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[355]" rel="355" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[355]" rel="355" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[355]" rel="355" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[355]" rel="355" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第12题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('382');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('382',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_382">
+							<input id="time_382" type="hidden" name="time[382]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>“逐鹿中原”是指什么时代群雄纷争的史实？					</div>
+															<div class="choice">
+                    	<p>A:战国时代</p><p>B:秦末</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[382]" rel="382" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[382]" rel="382" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第13题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('436');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('436',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_436">
+							<input id="time_436" type="hidden" name="time[436]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>你知道"希望工程"诞生时间是_________年的10月30日吗？					</div>
+															<div class="choice">
+                    	<p>A:1988</p><p>B:1989</p><p>C:1990</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[436]" rel="436" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[436]" rel="436" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[436]" rel="436" value="C" />C </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第14题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('493');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('493',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_493">
+							<input id="time_493" type="hidden" name="time[493]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>太真是谁出家时的道号					</div>
+															<div class="choice">
+                    	<p>A:貂蝉</p><p>B:赵飞燕</p><p>C:杨玉环</p><p>D:武则天</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[493]" rel="493" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[493]" rel="493" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[493]" rel="493" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[493]" rel="493" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第15题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('534');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('534',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_534">
+							<input id="time_534" type="hidden" name="time[534]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>我国第一个不平等条约是：					</div>
+															<div class="choice">
+                    	<p>A:马关条约</p><p>B:南京条约</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[534]" rel="534" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[534]" rel="534" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第16题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('537');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('537',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_537">
+							<input id="time_537" type="hidden" name="time[537]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>戊戌变法发生在那一年？					</div>
+															<div class="choice">
+                    	<p>A:1896</p><p>B:1898</p><p>C:1899</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[537]" rel="537" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[537]" rel="537" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[537]" rel="537" value="C" />C </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第17题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('574');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('574',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_574">
+							<input id="time_574" type="hidden" name="time[574]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>春秋战国时期和伯乐齐名的相马专家是：					</div>
+															<div class="choice">
+                    	<p>A:方九皋</p><p>B:九方皋</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[574]" rel="574" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[574]" rel="574" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第18题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('656');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('656',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_656">
+							<input id="time_656" type="hidden" name="time[656]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>陆游与唐婉分离后数年又在哪里重逢过					</div>
+															<div class="choice">
+                    	<p>A:后园</p><p>B:张园</p><p>C:林园</p><p>D:沈园</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[656]" rel="656" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[656]" rel="656" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[656]" rel="656" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[656]" rel="656" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第19题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('756');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('756',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_756">
+							<input id="time_756" type="hidden" name="time[756]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>盛唐时期被称为（    ）。					</div>
+															<div class="choice">
+                    	<p>A:贞观之治</p><p>B:开元之治</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[756]" rel="756" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[756]" rel="756" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第20题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('778');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('778',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_778">
+							<input id="time_778" type="hidden" name="time[778]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>灭亡宋朝的势力是：					</div>
+															<div class="choice">
+                    	<p>A:辽</p><p>B:金</p><p>C:西夏</p><p>D:蒙古</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[778]" rel="778" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[778]" rel="778" value="B" />B </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[778]" rel="778" value="C" />C </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[778]" rel="778" value="D" />D </label>
+	                        	                        	                        	                                        </div>
+									</div>
+																																								<hr />
+				<div class="box itembox">
+					<blockquote class="questype">二、多选题</blockquote>
+				</div>
+				                                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('53');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('53',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_53">
+							<input id="time_53" type="hidden" name="time[53]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>人类食品历史上先后出现了五类食品，其中第四，五类食品是？（多选）					</div>
+															<div class="choice">
+                    	<p>A:米</p><p>B:面</p><p>C:油</p><p>D:酱油</p><p>E:醋</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[53][0]" rel="53" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[53][1]" rel="53" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[53][2]" rel="53" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[53][3]" rel="53" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[53][4]" rel="53" value="E" />E </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('88');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('88',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_88">
+							<input id="time_88" type="hidden" name="time[88]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>下列姓氏中，哪些曾是古代的官名？（多选）					</div>
+															<div class="choice">
+                    	<p>A:欧阳</p><p>B:司马</p><p>C:上官</p><p>D:夏侯</p><p>E:司徒</p><p>F:司空</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][0]" rel="88" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][1]" rel="88" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][2]" rel="88" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][3]" rel="88" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][4]" rel="88" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[88][5]" rel="88" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('168');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('168',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_168">
+							<input id="time_168" type="hidden" name="time[168]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>北京的故宫是哪些朝代的皇宫？（多选）					</div>
+															<div class="choice">
+                    	<p>A:宋朝</p><p>B:元朝</p><p>C:明朝</p><p>D:清朝</p><p>E:唐朝</p><p>F:隋朝</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][0]" rel="168" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][1]" rel="168" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][2]" rel="168" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][3]" rel="168" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][4]" rel="168" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[168][5]" rel="168" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('275');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('275',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_275">
+							<input id="time_275" type="hidden" name="time[275]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>下面哪些是食草恐龙？（多选）					</div>
+															<div class="choice">
+                    	<p>A:甲龙</p><p>B:梁龙</p><p>C:鄂龙</p><p>D:腕龙</p><p>E:跃龙</p><p>F:鸭嘴龙</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][0]" rel="275" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][1]" rel="275" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][2]" rel="275" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][3]" rel="275" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][4]" rel="275" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[275][5]" rel="275" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('281');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('281',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_281">
+							<input id="time_281" type="hidden" name="time[281]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>在古爬行动物中有哪些动物残存至今？（多选）					</div>
+															<div class="choice">
+                    	<p>A:虎</p><p>B:鳄鱼</p><p>C:龟</p><p>D:大象</p><p>E:蜥蜴</p><p>F:蛇</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][0]" rel="281" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][1]" rel="281" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][2]" rel="281" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][3]" rel="281" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][4]" rel="281" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[281][5]" rel="281" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第6题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('291');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('291',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_291">
+							<input id="time_291" type="hidden" name="time[291]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>被称做“意大利文艺复兴三杰”的是（多选）					</div>
+															<div class="choice">
+                    	<p>A:达·芬奇</p><p>B:波提切利</p><p>C:拉菲尔</p><p>D:提香</p><p>E:米开朗基罗</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[291][0]" rel="291" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[291][1]" rel="291" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[291][2]" rel="291" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[291][3]" rel="291" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[291][4]" rel="291" value="E" />E </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第7题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('363');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('363',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_363">
+							<input id="time_363" type="hidden" name="time[363]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>初唐四杰是：（多选）					</div>
+															<div class="choice">
+                    	<p>A:李白</p><p>B:王勃</p><p>C:卢照邻</p><p>D:杜甫</p><p>E:骆宾王</p><p>F:杨炯</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][0]" rel="363" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][1]" rel="363" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][2]" rel="363" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][3]" rel="363" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][4]" rel="363" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[363][5]" rel="363" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第8题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('365');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('365',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_365">
+							<input id="time_365" type="hidden" name="time[365]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>解放战争进入夺取全国胜利的判定性阶段，党中央先后组织的三大战役是：（多选）					</div>
+															<div class="choice">
+                    	<p>A:辽沈战役</p><p>B:淮海战役</p><p>C:平津战役</p><p>D:渡江战役</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[365][0]" rel="365" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[365][1]" rel="365" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[365][2]" rel="365" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[365][3]" rel="365" value="D" />D </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第9题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('366');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('366',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_366">
+							<input id="time_366" type="hidden" name="time[366]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>历史上的“两河文明”中的”两河“指的是哪两条河流？（多选）					</div>
+															<div class="choice">
+                    	<p>A:尼罗河</p><p>B:恒河</p><p>C:长江</p><p>D:亚马逊河</p><p>E:底格里斯河</p><p>F:幼发拉底河</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][0]" rel="366" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][1]" rel="366" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][2]" rel="366" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][3]" rel="366" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][4]" rel="366" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[366][5]" rel="366" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第10题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('424');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('424',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_424">
+							<input id="time_424" type="hidden" name="time[424]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>西晋"三张"指的是（多选）					</div>
+															<div class="choice">
+                    	<p>A:张载</p><p>B:张协</p><p>C:张衡</p><p>D:张元</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[424][0]" rel="424" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[424][1]" rel="424" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[424][2]" rel="424" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[424][3]" rel="424" value="D" />D </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第11题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('538');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('538',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_538">
+							<input id="time_538" type="hidden" name="time[538]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>山西被称为三晋的三国包括：（多选）					</div>
+															<div class="choice">
+                    	<p>A:韩</p><p>B:燕</p><p>C:赵</p><p>D:魏</p><p>E:楚</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[538][0]" rel="538" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[538][1]" rel="538" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[538][2]" rel="538" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[538][3]" rel="538" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[538][4]" rel="538" value="E" />E </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第12题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('638');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('638',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_638">
+							<input id="time_638" type="hidden" name="time[638]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>下列哪种是古代四大神兽（多选）					</div>
+															<div class="choice">
+                    	<p>A:青龙</p><p>B:白虎</p><p>C:朱雀</p><p>D:玄武</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[638][0]" rel="638" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[638][1]" rel="638" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[638][2]" rel="638" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[638][3]" rel="638" value="D" />D </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第13题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('642');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('642',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_642">
+							<input id="time_642" type="hidden" name="time[642]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>哪两个国家的登山运动员在同一年登上珠穆朗玛峰？（多选）					</div>
+															<div class="choice">
+                    	<p>A:美国</p><p>B:新西兰</p><p>C:尼泊尔</p><p>D:英国</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[642][0]" rel="642" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[642][1]" rel="642" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[642][2]" rel="642" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[642][3]" rel="642" value="D" />D </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第14题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('677');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('677',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_677">
+							<input id="time_677" type="hidden" name="time[677]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>大禹治水时把天下分为九个州，以下哪几个州是其中的5个？（多选）					</div>
+															<div class="choice">
+                    	<p>A:冀</p><p>B:淮</p><p>C:徐</p><p>D:青</p><p>E:荆</p><p>F:豫</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][0]" rel="677" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][1]" rel="677" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][2]" rel="677" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][3]" rel="677" value="D" />D </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][4]" rel="677" value="E" />E </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[677][5]" rel="677" value="F" />F </label>
+	                        	                        	                                                                    </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第15题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('815');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('815',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_815">
+							<input id="time_815" type="hidden" name="time[815]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>近代中国反帝民族解放斗争的先导是以(   )为代表(多选)					</div>
+															<div class="choice">
+                    	<p>A:林则徐</p><p>B:曾国潘</p><p>C:魏源</p><p>D:张之洞</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[815][0]" rel="815" value="A" />A </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[815][1]" rel="815" value="B" />B </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[815][2]" rel="815" value="C" />C </label>
+	                        	                        	                        <label class="checkbox-inline"><input type="checkbox" name="question[815][3]" rel="815" value="D" />D </label>
+	                        	                        	                                                                    </div>
+									</div>
+																																								<hr />
+				<div class="box itembox">
+					<blockquote class="questype">三、判断题</blockquote>
+				</div>
+				                                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('120');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('120',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_120">
+							<input id="time_120" type="hidden" name="time[120]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>秦桧是不是最早被称为汉奸的人？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:不是</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[120]" rel="120" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[120]" rel="120" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('181');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('181',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_181">
+							<input id="time_181" type="hidden" name="time[181]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>我国古代有人口统计机构吗？					</div>
+															<div class="choice">
+                    	<p>A:有</p><p>B:没有</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[181]" rel="181" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[181]" rel="181" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('197');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('197',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_197">
+							<input id="time_197" type="hidden" name="time[197]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>在11月7日纪念俄国10月25日发生的“十月革命”，这样的差异与历法有关吗？					</div>
+															<div class="choice">
+                    	<p>A:有</p><p>B:没有</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[197]" rel="197" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[197]" rel="197" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('249');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('249',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_249">
+							<input id="time_249" type="hidden" name="time[249]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>西欧中世纪的骑士教育中是否重视文化知识教育？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:否</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[249]" rel="249" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[249]" rel="249" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('259');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('259',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_259">
+							<input id="time_259" type="hidden" name="time[259]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>秦朝的阿房宫遗址在西安市郊，对吗？					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:不对</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[259]" rel="259" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[259]" rel="259" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第6题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('268');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('268',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_268">
+							<input id="time_268" type="hidden" name="time[268]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>古代丝绸中，罗、缎、绮指的是同一种丝织物吗？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:不是</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[268]" rel="268" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[268]" rel="268" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第7题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('279');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('279',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_279">
+							<input id="time_279" type="hidden" name="time[279]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>翼龙是恐龙么？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:不是</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[279]" rel="279" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[279]" rel="279" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第8题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('344');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('344',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_344">
+							<input id="time_344" type="hidden" name="time[344]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>中国最早的文字是甲骨文吗？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:不是</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[344]" rel="344" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[344]" rel="344" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第9题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('384');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('384',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_384">
+							<input id="time_384" type="hidden" name="time[384]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>新华书店是新中国成立后建立的吗？					</div>
+															<div class="choice">
+                    	<p>A:是</p><p>B:不是</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[384]" rel="384" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[384]" rel="384" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第10题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('427');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('427',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_427">
+							<input id="time_427" type="hidden" name="time[427]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>始作俑者原指开始用陶佣殉葬的人。					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[427]" rel="427" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[427]" rel="427" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第11题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('428');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('428',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_428">
+							<input id="time_428" type="hidden" name="time[428]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>鲁班是鲁国人。					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[428]" rel="428" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[428]" rel="428" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第12题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('429');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('429',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_429">
+							<input id="time_429" type="hidden" name="time[429]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>"爱琴文明"属于石器文明。					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[429]" rel="429" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[429]" rel="429" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第13题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('430');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('430',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_430">
+							<input id="time_430" type="hidden" name="time[430]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>第一台内燃机的发明者是英国人。					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[430]" rel="430" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[430]" rel="430" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第14题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('631');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('631',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_631">
+							<input id="time_631" type="hidden" name="time[631]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>老子是春秋晚期的思想家					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[631]" rel="631" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[631]" rel="631" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+				                				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第15题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('745');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a class="btn btn-info qicon" href="javascript:;" onclick="javascript:signQuestion('745',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+							<a name="question_745">
+							<input id="time_745" type="hidden" name="time[745]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a>公元1900年是闰年					</div>
+															<div class="choice">
+                    	<p>A:对</p><p>B:错</p>                    </div>
+                    					<div class="selector">
+                    		                        	                        	                        <label class="radio-inline"><input type="radio" name="question[745]" rel="745" value="A" />A </label>
+	                        	                        	                        <label class="radio-inline"><input type="radio" name="question[745]" rel="745" value="B" />B </label>
+	                        	                        	                        	                                        </div>
+									</div>
+																																																												<h3 class="text-center">
+					<input type="hidden" name="insertscore" value="1"/>
+					<a class="btn btn-primary" style="font-size:1em;width:270px;" href="#submodal" role="button" data-toggle="modal">交 卷</a>
+				</h3>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">交卷</h4>
+			</div>
+			<div class="modal-body">
+				<p>共有试题 <span class="allquestionnumber">50</span> 题，已做 <span class="yesdonumber">0</span> 题。您确认要交卷吗？</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" onclick="javascript:submitPaper();" class="btn btn-primary">确定交卷</button>
+				<button aria-hidden="true" class="btn" type="button" data-dismiss="modal">再检查一下</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get('index.php?exam-app-index-ajax-lefttime&rand'+Math.random(),function(data){
+		var setting = {
+			time:60,
+			hbox:$("#timer_h"),
+			mbox:$("#timer_m"),
+			sbox:$("#timer_s"),
+			finish:function(){
+				submitPaper();
+			}
+		}
+		setting.lefttime = parseInt(data);
+		countdown(setting);
+	});
+
+	setInterval(saveanswer,120000);
+
+	initData = $.parseJSON(storage.getItem('questions'));
+	if(initData){
+		for(var p in initData){
+			if(p!='set')
+			formData[p]=initData[p];
+			$("#time_"+$('[name="'+p+'"]').attr('rel')).val(initData[p].time);
+		}
+
+		var textarea = $('#form1 textarea');
+		$.each(textarea,function(){
+			var _this = $(this);
+			if(initData[_this.attr('name')])
+			{
+				_this.val(initData[_this.attr('name')].value);
+				CKEDITOR.instances[_this.attr('id')].setData(initData[_this.attr('name')].value);
+				if(initData[_this.attr('name')].value && initData[_this.attr('name')].value != '')
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}
+		});
+		var texts = $('#form1 :input[type=text]');
+		$.each(texts,function(){
+			var _this = $(this);
+			if(initData[_this.attr('name')])
+			{
+				_this.val(initData[_this.attr('name')]?initData[_this.attr('name')].value:'');
+				if(initData[_this.attr('name')].value && initData[_this.attr('name')].value != '')
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}
+		});
+
+		var radios = $('#form1 :input[type=radio]');
+		$.each(radios,function(){
+			var _= this, v = initData[_.name]?initData[_.name].value:null;
+			var _this = $(this);
+			if(v!=''&&v==_.value){
+				_.checked = true;
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}else{
+				_.checked=false;
+			}
+		});
+
+		var checkboxs=$('#form1 :input[type=checkbox]');
+		$.each(checkboxs,function(){
+			var _=this,v=initData[_.name]?initData[_.name].value:null;
+			var _this = $(this);
+			if(v!=''&&v==_.value){
+				_.checked=true;
+				batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+			}else{
+				_.checked=false;
+			}
+		});
+	}
+
+	$('#form1 :input[type=text]').change(function(){
+		var _this=$(this);
+		var p=[];
+		p.push(_this.attr('name'));
+		p.push(_this.val());
+		p.push(Date.parse(new Date())/1000);
+		$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+		set.apply(formData,p);
+		markQuestion(_this.attr('rel'),true);
+	});
+
+	$('#form1 :input[type=radio]').change(function(){
+		var _=this;
+		var _this=$(this);
+		var p=[];
+		p.push(_.name);
+		if(_.checked){
+			p.push(_.value);
+			p.push(Date.parse(new Date())/1000);
+			$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+			set.apply(formData,p);
+		}else{
+			p.push('');
+			p.push(null);
+			set.apply(formData,p);
+		}
+		markQuestion(_this.attr('rel'));
+	});
+
+	$('#form1 textarea').change(function(){
+		var _= this;
+		var _this=$(this);
+		var p=[];
+		p.push(_.name);
+		p.push(_.value);
+		p.push(Date.parse(new Date())/1000);
+		$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+		set.apply(formData,p);
+		markQuestion(_this.attr('rel'),true);
+	});
+
+	$('#form1 :input[type=checkbox]').change(function(){
+		var _= this;
+		var _this = $(this);
+		var p=[];
+		p.push(_.name);
+		if(_.checked){
+			p.push(_.value);
+			p.push(Date.parse(new Date())/1000);
+			$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+			set.apply(formData,p);
+		}else{
+			p.push('');
+			p.push(null);
+			set.apply(formData,p);
+		}
+		markQuestion(_this.attr('rel'));
+	});
+
+	$('.allquestionnumber').html($('.paperexamcontent').length);
+	$('.yesdonumber').html($('#questionindex .btn-primary').length);
+});
+</script>
+<!--
+<div class="container-fluid box" style="background-color:#2DAB49;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">在线学习及自动化考试系统（Online learning and automated examination system）</a></li>
+					<li class="text-center"><a href="">Copyright © 2016-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>-->
+</body>
+</html>

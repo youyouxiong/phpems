@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-10">
+				<h2 style="color:#2DAB49;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS后台管理</a></h2>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> peadmin</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																<li><a href="index.php?core-master"><em class="glyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#2DAB49;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1">
+						<a href="index.php?core-master">全局</a>
+					</li>
+															<li class="menu col-xs-1">
+						<a href="index.php?user-master">用户模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?exam-master">考试模块</a>
+					</li>
+																														<li class="menu col-xs-1">
+						<a href="index.php?document-master">文件模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?content-master">内容模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?bank-master">财务模块</a>
+					</li>
+																				<li class="menu col-xs-1 active">
+						<a href="index.php?course-master">课程模块</a>
+					</li>
+														</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<ul class="list-group">
+	<li class="list-group-item ">
+				<a href="index.php?course-master">首页</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?course-master-category">课程分类</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?course-master-course">课程管理</a>
+			</li>
+	<li class="list-group-item active">
+		课件管理
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?course-master-module">模型管理</a>
+			</li>
+</ul>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?course-master">课程模块</a></li>
+							<li><a href="index.php?course-master-contents&page=0">课件管理</a></li>
+							<li class="active">修改课件</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;">
+					<h4 class="title" style="padding:10px;">
+						修改课件
+						<a class="btn btn-primary pull-right" href="index.php?course-master-contents&courseid=1&page=0">课件管理</a>
+					</h4>
+					<form action="index.php?course-master-contents-edit" method="post" class="form-horizontal">
+						<div class="form-group">
+				            <label for="contenttitle" class="control-label col-sm-2">标题：</label>
+				            <div class="col-sm-9">
+							    <input class="form-control" type="text" id="coursetitle" name="args[coursetitle]" needle="needle" msg="您必须输入标题" value="测试">
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="block" class="control-label col-sm-2">缩略图：</label>
+				            <div class="col-sm-9">
+					            <script type="text/template" id="pe-template-coursethumb">
+						    		<div class="qq-uploader-selector" style="width:30%" qq-drop-area-text="可将图片拖拽至此处上传" style="clear:both;">
+						            	<div class="qq-upload-button-selector" style="clear:both;">
+						                	<ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+								                <li class="text-center">
+								                    <div class="thumbnail">
+														<img class="qq-thumbnail-selector" alt="点击上传新图片">
+														<input type="hidden" class="qq-edit-filename-selector" name="args[coursethumb]" tabindex="0">
+													</div>
+								                </li>
+								            </ul>
+								            <ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+									            <li class="text-center">
+									                <div class="thumbnail">
+														<img class="qq-thumbnail-selector" src="files/attach/images/content/20160630/14672572053861.jpg" alt="点击上传新图片">
+														<input type="hidden" class="qq-edit-filename-selector" name="args[coursethumb]" tabindex="0" value="files/attach/images/content/20160630/14672572053861.jpg">
+						                			</div>
+									            </li>
+									        </ul>
+						                </div>
+						            </div>
+						        </script>
+						        <div class="fineuploader" attr-type="thumb" attr-template="pe-template-coursethumb"></div>
+							</div>
+				        </div>
+		    									<div class="form-group">
+							<label for="course_files" class="control-label col-sm-2">视频文件</label>
+							<div class="col-sm-9">
+								    	<script type="text/template" id="pe-template-course_files">
+    		<div class="qq-uploader-selector" qq-drop-area-text="可将图片拖拽至此处上传" style="clear:both;">
+            	<ul class="qq-upload-list-selector list-unstyled pull-left" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+	                <li class="text-center">
+						<input size="45" class="form-control qq-edit-filename-selector" type="text" name="args[course_files]" tabindex="0" value="">
+	                </li>
+	            </ul>
+	            <ul class="qq-upload-list-selector list-unstyled pull-left" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+	                <li class="text-center">
+	                    <input size="45" class="form-control qq-edit-filename-selector" type="text" name="args[course_files]" tabindex="0" value="http://v.ku6.com/show/K8oQJeh_qwgUFl4FQcvwkg...html?mobile">
+	                </li>
+	            </ul>
+            	<div class="qq-upload-button-selector col-xs-3">
+					<button class="btn btn-primary">上传文件<span class="process"></span></button>
+                </div>
+            </div>
+        </script>
+        <div class="fineuploader" attr-type="files" attr-template="pe-template-course_files" attr-ftype="mp4"></div>							</div>
+						</div>
+										    	<div class="form-group">
+				            <label for="coursetext" class="control-label col-sm-2">内容</label>
+				            <div class="col-sm-9">
+							    <textarea id="coursetext" rows="7" cols="4" class="ckeditor" name="args[coursedescribe]">&lt;p&gt;测试测试测试测试&lt;/p&gt;</textarea>
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="coursetext" class="control-label col-sm-2"></label>
+				            <div class="col-sm-9">
+					            <button class="btn btn-primary" type="submit">提交</button>
+					            <input type="hidden" name="contentid" value="1">
+					            <input type="hidden" name="submit" value="1">
+					        </div>
+				        </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#2DAB49;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">PHPEMS在线模拟考试系统 著作权登记号：2013 SR 113189</a></li>
+					<li class="text-center"><a href="">Copyright © phpems.net  2015-2016</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

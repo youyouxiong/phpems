@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PHPEMS模拟考试系统后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+</head><body>
+<div class="container-fluid box" style="margin:0px auto;padding-top:10px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-10">
+				<h2 style="color:#2DAB49;"><a href="index.php"><img src="app/core/styles/img/logo2.png" style="height:60px;margin-top:-10px;"/>&nbsp;PHPEMS后台管理</a></h2>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphicon-user"></em> peadmin</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphicon-user"></em> 用户中心</a></li>
+																<li><a href="index.php?core-master"><em class="glyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar" style="margin-top:0px;margin-bottom:0px;padding-top:10px;background-color:#2DAB49;">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1">
+						<a href="index.php?core-master">全局</a>
+					</li>
+															<li class="menu col-xs-1">
+						<a href="index.php?user-master">用户模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?exam-master">考试模块</a>
+					</li>
+																														<li class="menu col-xs-1">
+						<a href="index.php?document-master">文件模块</a>
+					</li>
+																				<li class="menu col-xs-1 active">
+						<a href="index.php?content-master">内容模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?bank-master">财务模块</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?course-master">课程模块</a>
+					</li>
+														</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-2" style="padding-top:10px;margin-bottom:0px;">
+				<ul class="list-group">
+	<li class="list-group-item ">
+				<a href="index.php?content-master">首页</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-category">分类管理</a>
+			</li>
+	<li class="list-group-item active">
+		内容管理
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-module">模型管理</a>
+			</li>
+	<li class="list-group-item ">
+				<a href="index.php?content-master-blocks">标签管理</a>
+			</li>
+</ul>			</div>
+			<div class="col-xs-10" id="datacontent">
+				<div class="box itembox" style="margin-bottom:0px;border-bottom:1px solid #CCCCCC;">
+					<div class="col-xs-12">
+						<ol class="breadcrumb">
+							<li><a href="index.php?content-master">内容模块</a></li>
+							<li><a href="index.php?content-master-contents&page=1">内容管理</a></li>
+							<li class="active">修改内容</li>
+						</ol>
+					</div>
+				</div>
+				<div class="box itembox" style="padding-top:10px;margin-bottom:0px;overflow:visible">
+					<h4 class="title" style="padding:10px;">
+						修改内容
+						<a class="btn btn-primary pull-right" href="index.php?content-master-contents&catid=4&page=1">内容管理</a>
+					</h4>
+					<form action="index.php?content-master-contents-edit" method="post" class="form-horizontal">
+						<div class="form-group">
+				            <label for="contenttitle" class="control-label col-sm-2">标题：</label>
+				            <div class="col-sm-9">
+							    <input class="form-control" type="text" id="contenttitle" name="args[contenttitle]" needle="needle" msg="您必须输入标题" value="桂林电子科技大学考试信息">
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="contenttitle" class="control-label col-sm-2">发布时间：</label>
+				            <div class="col-sm-4">
+							    <input class="form-control datetimepicker" data-minview="0" data-date="2017-05-24 22:08:17" data-date-format="yyyy-mm-dd hh:ii:ss" type="text" value="2017-03-08 10:30:59" name="args[contentinputtime]" needle="needle" msg="您必须输入发布时间">
+					        </div>
+				        </div>
+				        <!--
+				        <div class="col-sm-9">
+				            <label for="block" class="control-label col-sm-2">标题颜色：</label>
+				            <input type="text" name="args[contenttitle]" needle="needle" msg="您必须输入标题">
+				        </div>
+				        <div class="col-sm-9">
+				            <label for="block" class="control-label col-sm-2">标题加粗：</label>
+				            <input type="text" name="args[contenttitle]" needle="needle" msg="您必须输入标题">
+				        </div>
+
+				        <div class="form-group">
+				            <label for="contentmoduleid" class="control-label col-sm-2">模型：</label>
+				            <div class="col-sm-9">
+							    <select id="contentmoduleid" msg="您必须选择信息模型" refreshjs="on" needle="needle" class="combox" name="args[contentmoduleid]" refUrl="index.php?content-master-module-moduleforms&moduleid={value}" target="contentforms">
+					            	<option value="">选择信息模型</option>
+					            						            	<option value="15">文件格式</option>
+					            						            	<option value="4">新闻</option>
+					            						            </select>
+					        </div>
+				        </div>
+				        -->
+				        <div class="form-group">
+				            <label for="block" class="control-label col-sm-2">缩略图：</label>
+				            <div class="col-sm-9">
+								<script type="text/template" id="pe-template-contentthumb">
+						    		<div class="qq-uploader-selector" style="width:30%" qq-drop-area-text="可将图片拖拽至此处上传" style="clear:both;">
+						            	<div class="qq-upload-button-selector" style="clear:both;">
+						                	<ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+								                <li class="text-center">
+								                    <div class="thumbnail">
+														<img class="qq-thumbnail-selector" alt="点击上传新图片">
+														<input type="hidden" class="qq-edit-filename-selector" name="args[contentthumb]" tabindex="0">
+													</div>
+								                </li>
+								            </ul>
+								            <ul class="qq-upload-list-selector list-unstyled" aria-live="polite" aria-relevant="additions removals" style="clear:both;">
+									            <li class="text-center">
+									                <div class="thumbnail">
+														<img class="qq-thumbnail-selector" src="app/core/styles/images/noimage.gif" alt="点击上传新图片">
+														<input type="hidden" class="qq-edit-filename-selector" name="args[contentthumb]" tabindex="0" value="app/core/styles/images/noimage.gif">
+						                			</div>
+									            </li>
+									        </ul>
+						                </div>
+						            </div>
+						        </script>
+						        <div class="fineuploader" attr-type="thumb" attr-template="pe-template-contentthumb"></div>
+							</div>
+				        </div>
+				        <div class="form-group">
+				            <label for="contentlink" class="control-label col-sm-2">站外链接：</label>
+				            <div class="col-sm-9">
+							    <input class="form-control" type="text" id="contentlink" name="args[contentlink]" value="">
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="contentdescribe" class="control-label col-sm-2">摘要：</label>
+				            <div class="col-sm-9">
+							    <textarea id="contentdescribe" class="form-control" name="args[contentdescribe]" rows="7" cols="4">桂林电子科技大学考试信息</textarea>
+					        </div>
+				        </div>
+		    									<div class="form-group">
+							<label for="tester" class="control-label col-sm-2">测试字段</label>
+							<div class="col-sm-9">
+								<div class="sortable" id="tester-range"></div>		<script type="text/template" id="pe-template-tester">
+    		<div class="qq-uploader-selector" qq-drop-area-text="可将图片拖拽至此处上传" style="clear:both;">
+            	<div class="qq-upload-list-selector hide" aria-live="polite" aria-relevant="additions removals">
+					<span></span>
+				</div>
+				<div class="listimg hide">
+					<div class="thumbnail col-xs-3 listimgselector">
+						<img class="qq-thumbnail-selector" alt="点击上传新图片" src="*value*">
+						<input type="hidden" class="qq-edit-filename-selector" name="*name*" tabindex="0" value="*value*">
+					</div>
+				</div>
+				<div class="qq-upload-button-selector qq-upload-button" style="clear:both;">
+                    <a class="btn btn-primary">添加文件</a>
+                </div>
+            </div>
+        </script>
+        <div class="fineuploader" attr-box="tester-range" attr-name="args[tester][]" attr-type="list" attr-list="true" attr-template="pe-template-tester"></div>							</div>
+						</div>
+										    	<div class="form-group">
+				            <label for="contenttext" class="control-label col-sm-2">内容</label>
+				            <div class="col-sm-10">
+							    <textarea id="contenttext" rows="7" cols="4" class="ckeditor" name="args[contenttext]">&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;&lt;strong&gt;一、工作思路&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;全面学习贯彻党的十八大及十八届历次全会和习近平总书记系列重要讲话精神，以&amp;ldquo;构建网络化、数字化、个性化、终身化的教育体系，建设&amp;lsquo;人人皆学、处处能学、时时可学&amp;rsquo;的学习型社会，培养大批创新人才&amp;rdquo;为发展方向，贯彻落实教育信息化&amp;ldquo;十三五&amp;rdquo;规划总体部署，按照&amp;ldquo;服务全局、融合创新、深化应用、完善机制&amp;rdquo;的原则，大力推动&amp;ldquo;四个提升&amp;rdquo;和&amp;ldquo;四个拓展&amp;rdquo;，充分发挥教育信息化对教育现代化的支撑和引领作用，以优异成绩迎接党的十九大胜利召开。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;&lt;strong&gt;二、核心目标&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;2017年，要坚持力度不减、抓手不软、培训不松，做到强化示范、突出效果、加强宣传，协同各方力量，加快推进各项重点工作，保证以下目标的实现：&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;一是基本实现具备条件的学校互联网全覆盖、网络教学环境全覆盖，接入带宽10M以上的中小学比例达到70%，多媒体教室占普通教室比例达到80%，普通教室全部配备多媒体教学设备的学校比例达到60%。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;二是基本形成国家教育资源公共服务体系框架。国家教育资源公共服务平台实现与全部省级平台及一批市县级平台、企业平台互联互通。国家教育资源公共服务体系服务用户超过7000万人，支持全国200万个以上的班级实现&amp;ldquo;优质资源班班通&amp;rdquo;。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;三是资源服务供给能力进一步提升，组织开发266学时的农村中小学教学资源，免费播发使用。开展职业教育资源库16个项目立项建设和5个项目升级改进。270万名教师参加&amp;ldquo;一师一优课、一课一名师&amp;rdquo;活动&amp;ldquo;晒课&amp;rdquo;，征集年度&amp;ldquo;优课&amp;rdquo;2万堂。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;四是以&amp;ldquo;一生一空间、生生有特色&amp;rdquo;为目标，力争网络学习空间开通数量超过7500万个，实现90%以上教师和60%初中以上的学生开通和应用网络学习空间。完成中小学、职业院校校长和骨干教师&amp;ldquo;人人通&amp;rdquo;专项培训1万人。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;五是深入推进信息技术与教育教学深度融合。针对不同信息化教学应用模式，试点组建若干区域、学校联盟。出版教育部第一批教育信息化试点优秀案例集，在基础教育领域培育形成30个区域和60个学校示范案例。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;六是基本完成全国中小学教师信息技术应用能力提升工程1000万名中教师的培训任务。完成教育厅局长教育信息化专题培训800人。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;七是管理信息化水平和教育治理能力显著提升。教育管理公共服务平台进一步完善，基础数据实现有序共享。印发《教育部教育数据管理暂行办法》。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;八是深入贯彻《网络安全法》，全面完成教育行业关键信息基础设施定级备案和测评整改，信息技术安全监测和检查常态化。完成网络安全综合治理行动。完成网络安全专项培训600人。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;&lt;strong&gt;三、重点任务&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;(一)做好教育信息化统筹部署&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;1.做好教育信息化统筹管理与指导。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;贯彻落实《国家教育事业发展第十三个五年规划》《&amp;ldquo;十三五&amp;rdquo;国家信息化规划》《教育脱贫攻坚&amp;ldquo;十三五&amp;rdquo;规划》《国务院关于统筹推进县域内城乡义务教育一体化改革发展的若干意见》等重要规划和文件关于教育信息化的战略部署，推动落实《教育信息化&amp;ldquo;十三五&amp;rdquo;规划》，组织开展实地调研、分片研讨，指导各地进一步完善教育信息化管理体制，狠抓教育信息化深化应用、融合创新。召开2017年度教育信息化工作会，研究部署年度重点工作。(责任单位：科技司)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;落实中央网络安全和信息化领导小组和国务院有关&amp;ldquo;一带一路&amp;rdquo;、&amp;ldquo;互联网+&amp;rdquo;、大数据、云计算、智慧城市、信息惠民、宽带中国、网络扶贫等重大战略的任务安排。(责任单位：科技司、相关业务司局)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;组织交流、研讨和展示活动，多种形式指导和推动地方推进基础教育信息化应用工作。(责任单位：基础二司、中央电教馆)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;开展调研指导，探索制定民族地区教育信息化推进策略和有效模式。(责任单位：民族司、民族教育中心)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;印发&amp;ldquo;十三五&amp;rdquo;职业教育信息化建设指导意见，完成教育部职业院校信息化教学指导委员会换届。(责任单位：职成司)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;(二)完善教育信息化基础环境建设&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;2.加快推进中小学&amp;ldquo;宽带网络校校通&amp;rdquo;。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;结合精准扶贫、宽带中国和贫困村信息化等工作，采取有线、无线、卫星等多种形式，加快推进农村学校互联网接入，进一步提升学校网络带宽，推进&amp;ldquo;无线校园&amp;rdquo;建设。督促各地在&amp;ldquo;全面改善贫困地区义务教育薄弱学校基本办学条件&amp;rdquo;工作中重点保障农村学校信息化建设投入。推动将学校网络教学环境和备课环境建设纳入义务教育学校建设标准，鼓励具备条件的学校配备师生用教学终端。使具备条件的学校基本实现互联网全覆盖、网络教学环境全覆盖。(责任单位：科技司、财务司、督导局、中央电教馆)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;3.推动数字校园和智慧校园建设。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;发布中小学数字校园建设规范，继续开展中小学百所数字校园示范校项目。充分发挥地方与学校积极性与主动性，引导各级各类学校开展数字校园、智慧校园建设与应用。(责任单位：科技司、基础一司、基础二司、职成司、高教司、中央电教馆，地方教育行政部门)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;推动落实《职业院校数字校园建设规范》，继续开展&amp;ldquo;职业教育百所数字校园建设实验校&amp;rdquo;项目，完成第一批实验校的中期评估，依托国家教育资源公共服务平台，征集优秀空间，汇聚优质资源、先进技术和院校优秀教育教学成果，并进行推广应用。(责任单位：职成司、中央电教馆)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;国家开放大学完成100间云教室建设，实现对中西部基层县级电大的全覆盖。启动基于VR的实验实训平台建设，完成互联网+智慧教育示范基地建设。(责任单位：国家开放大学)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;(三)推动教育资源公共服务体系建设与应用&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;4.规范引导教育资源公共服务体系建设。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;制订国家教育资源公共服务体系建设、应用与服务的指导意见，出台国家教育资源公共服务体系建设与应用&amp;ldquo;十三五&amp;rdquo;实施方案，制定适用的体系技术架构和标准规范，并为区域平台建设和应用提供指导和服务。进一步完善国家教育资源公共服务平台基础环境。完成国家科技支撑计划&amp;ldquo;教育云规模化应用示范&amp;rdquo;项目验收。(责任单位：科技司、中央电教馆)&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;5.提升教育资源公共服务体系协同服务能力。&lt;/p&gt;
+
+&lt;p style=&quot;margin-bottom: 15px; padding: 0px; text-indent: 2em; font-family: 微软雅黑; font-size: 14px; line-height: 25.2px; widows: 1;&quot;&gt;持续完善国家教育资源公共服务平台资源服务。实现国家平台与全部省级平台的互联互通，加快推进与主要企业平台的对接，试点推动基于统一身份认证的网络学习空间服务模式，提升公共服务体系协同服务水平，支持全国200万个以上的班级实现&amp;ldquo;优质资源班班通&amp;rdquo;，服务教师、学生、家长总量超过7000万人。(责任单位：科技司、中央电教馆、地方各级教育行政部门)&lt;/p&gt;</textarea>
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="contenttemplate" class="control-label col-sm-2">模版：</label>
+				            <div class="col-sm-3">
+							    <select class="form-control" name="args[contenttemplate]" id="contenttemplate">
+					            						            	<option value="content_default">content_default</option>
+					            						            </select>
+					        </div>
+				        </div>
+				        <div class="form-group">
+				            <label for="contenttemplate" class="control-label col-sm-2"></label>
+				            <div class="col-sm-9">
+					            <button class="btn btn-primary" type="submit">提交</button>
+					            <input type="hidden" name="contentid" value="63">
+					            <input type="hidden" name="gotopos" value="1">
+					            <input type="hidden" name="submit" value="1">
+					        </div>
+				        </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" style="background-color:#2DAB49;margin-bottom:0px;" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="">在线学习及自动化考试系统（Online learning and automated examination system）</a></li>
+					<li class="text-center"><a href="">Copyright © 2016-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>
